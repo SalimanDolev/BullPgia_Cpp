@@ -13,3 +13,7 @@ std::string RandomGuesser::guess() {
 void RandomGuesser::startNewGame(int length1){
 	length=length1;
 }
+
+void ConstantGuesser::startNewGame(int length1){
+	length=length1;
+}
