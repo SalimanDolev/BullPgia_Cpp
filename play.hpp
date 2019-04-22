@@ -22,5 +22,4 @@ namespace bullpgia {
 	 *     then the return value is maxTurns+1.
 	 */
 	uint play(Chooser& chooser, Guesser& guesser, uint length, uint maxTurns);
-	std::string calculateBullAndPgia(string choice,string guess);
 }

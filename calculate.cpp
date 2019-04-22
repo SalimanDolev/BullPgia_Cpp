@@ -3,14 +3,23 @@
 #include <string>
 #include "calculate.hpp"
 using std::string;
+using namespace std;
 namespace bullpgia{
-       auto calculateBullAndPgia(string choice,string guess){
-           		auto a="4,0";
-		for (size_t i = 0; i < choice.length(); i++)
-		{
-			if(choice.at(i)==guess.at(i))
-				return a ;
-		}
-		
-       }
+     string calculateBullAndPgia(const string &choice, const string &guess) {
+        uint bull=0;
+    uint pgia=0;
+
+    for(int i =0; i<choice.length();i++){
+        for(int j=0; j<guess.length(); j++){
+            if(i==j && choice[i]==guess[j]){
+                ++bull;
+            }else if(i!=j && choice[i]==guess[j]){
+                ++pgia;
+            }
+        }
+    }
+
+    return to_string(bull)+","+to_string(pgia);
+    }
+
 }

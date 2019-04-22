@@ -14,7 +14,7 @@ class Guesser {
     int length;
     public:
     virtual string guess()=0;
-    virtual void startNewGame(int length)=0;
+    virtual void startNewGame(int length){};
     virtual void learn(string replay){};
 
 };
