@@ -6,13 +6,16 @@
 using std::string;
 
 namespace bullpgia{
+
 class Chooser;
 class Guesser {
+    protected:
+    string s;
+    int length;
     public:
-    //virtual uint play( Chooser& chooser, Guesser& guesser, uint length, uint maxTurns)=0;
     virtual string guess()=0;
     virtual void startNewGame(int length)=0;
-    std::string learn(string replay);
+    virtual void learn(string replay){};
 
 };
 }

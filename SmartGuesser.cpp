@@ -1,3 +1,4 @@
+#pragma once
 #include <stdlib.h>
 #include <string>
 #include "SmartGuesser.hpp"
@@ -13,4 +14,7 @@ std::string SmartGuesser::guess() {
 }
 void SmartGuesser::startNewGame(int length1){
 	length=length1;
+}
+void SmartGuesser::learn(string replay){
+    
 }
