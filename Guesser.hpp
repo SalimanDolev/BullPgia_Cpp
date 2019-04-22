@@ -11,7 +11,7 @@ class Guesser {
     public:
     //virtual uint play( Chooser& chooser, Guesser& guesser, uint length, uint maxTurns)=0;
     virtual string guess()=0;
-    void startNewGame(int length);
+    virtual void startNewGame(int length)=0;
     std::string learn(string replay);
 
 };

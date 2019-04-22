@@ -1,7 +1,9 @@
-#include "DummyGuessers.hpp"
 #include <stdlib.h>
+#include <string>
+#include "SmartGuesser.hpp"
+using std::string;
 
-std::string RandomGuesser::guess() {
+std::string SmartGuesser::guess() {
 	std::string r="";
 	for (uint i=0; i<this->length; ++i) {
 		char c = '0' + (rand()%10);
@@ -9,7 +11,6 @@ std::string RandomGuesser::guess() {
 	}
 	return r;
 }
-
-void RandomGuesser::startNewGame(int length1){
+void SmartGuesser::startNewGame(int length1){
 	length=length1;
 }
