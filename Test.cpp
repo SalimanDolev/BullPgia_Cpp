@@ -33,6 +33,11 @@ int main() {
 		testcase.setname("Calculate bull and pgia")
 		.CHECK_OUTPUT(calculateBullAndPgia("1234","1234"), "4,0")      // 4 bull, 0 pgia
 		.CHECK_OUTPUT(calculateBullAndPgia("1234","4321"), "0,4")      // 0 bull, 4 pgia
+		///////////////////////////////////////new tests////////////////////////////////
+		.CHECK_OUTPUT(calculateBullAndPgia("5555","5444"), "1,0")      // 1 bull, 0 pgia
+		.CHECK_OUTPUT(calculateBullAndPgia("5555","4444"), "0,0")      // 0 bull, 0 pgia
+		.CHECK_OUTPUT(calculateBullAndPgia("5455","5444"), "2,0")      // 2 bull, 0 pgia
+		.CHECK_OUTPUT(calculateBullAndPgia("1798","1978"), "1,0")      // 2 bull, 2 pgia
 		;
 
 		testcase.setname("Play with dummy choosers and guessers")
@@ -48,7 +53,23 @@ int main() {
 		for (uint i=0; i<100; ++i) {
 			testcase.CHECK_EQUAL(play(randy, smarty, 4, 100)<=10, true);  // smarty should always win in at most 10 turns!
 		}
+	 	
+		 
+		 /////////////////////// Calaulate the average of smart guesser/////////////////////////////////
+		testcase.setname("Average with smart guesser");
+		RandomChooser randy1;
+		int count =0;
+		for (size_t i = 0; i < 5; i++){
+			SmartGuesser smarty2;
+			for (size_t i = 0; i < 101; i++){
+			testcase.CHECK_EQUAL(play(randy1, smarty2, 4, 100)<=10, true);
+			}
+			count = count + i;
+		}	
+		cout << "the avarage for smart guesser is: " << count/5 << "\n" << endl;
+		
 
+	
     grade = testcase.grade();
 	} else {
 		testcase.print_signal(signal);

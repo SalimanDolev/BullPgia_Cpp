@@ -14,6 +14,6 @@ class Chooser {
     virtual string choose (uint length)=0;
     
     private:
-
+    
 };
 }
