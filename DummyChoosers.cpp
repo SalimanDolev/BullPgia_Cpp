@@ -9,3 +9,6 @@ std::string RandomChooser::choose(uint length) {
 	}
 	return r;
 }
+void RandomChooser::print(){
+	
+}
