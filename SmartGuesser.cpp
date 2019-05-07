@@ -4,9 +4,7 @@
 #include <algorithm>
 #include <stdexcept>
 #include "SmartGuesser.hpp"
-/** created by Dolev Saliman**/
-
-
+/*created by Dolev Saliman*/
 namespace bullpgia
 {
 int SmartGuesser::log2(int num)
@@ -56,7 +54,7 @@ void SmartGuesser::first_process(int bull)
             while (_amount_of_num[_count_step][1] == 0)                   // moving to the first found number
                 _count_step++;
 
-            start_second();create_num
+            start_second();
             return;
         }
     }
