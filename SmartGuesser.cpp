@@ -4,6 +4,8 @@
 #include <algorithm>
 #include <stdexcept>
 #include "SmartGuesser.hpp"
+/** created by Dolev Saliman**/
+
 
 namespace bullpgia
 {
@@ -17,16 +19,14 @@ int SmartGuesser::log2(int num)
     return ret;
 }
 
-////----------------------------------------------------------------------
 // The utility function for std::sotr() function
 bool sort_fun(vector<int> left, vector<int> right)
 {
     return (left[1] < right[1]);
 }
 
-////----------------------------------------------------------------------
 // Creating a guess's number
-void SmartGuesser::create_num(char ch, size_t left, size_t right)
+void SmartGuesser::create_num(char c, size_t left, size_t right)
 {
     for (size_t i = left; i < right; i++)
     {
@@ -36,7 +36,7 @@ void SmartGuesser::create_num(char ch, size_t left, size_t right)
         }
         else
         {
-            _guess[i] = ch;
+            _guess[i] = c;
         }
     }
 }
@@ -51,13 +51,12 @@ void SmartGuesser::first_process(int bull)
         if (length == _length_step) // will stop when find all digits
         {
             _first_second_process = false; // start the second process
-
             _count_step = 0;
             sort(_amount_of_num.begin(), _amount_of_num.end(), sort_fun); // sorting to terminate the not uses digits
             while (_amount_of_num[_count_step][1] == 0)                   // moving to the first found number
                 _count_step++;
 
-            start_second();
+            start_second();create_num
             return;
         }
     }
@@ -79,7 +78,6 @@ void SmartGuesser::start_second()
     create_num(char('0' + _amount_of_num[_count_step][0]), _l, _r); // create the guess with new searching digit
 }
 
-////----------------------------------------------------------------------
 // Calculate the right position of each digit
 void SmartGuesser::second_process(int bull)
 {
@@ -177,7 +175,6 @@ void SmartGuesser::second_process(int bull)
     }
 }
 
-////----------------------------------------------------------------------
 // Preparing the SmartGuesser
 void SmartGuesser::startNewGame(int len)
 {
@@ -207,7 +204,6 @@ void SmartGuesser::startNewGame(int len)
     }
 }
 
-////----------------------------------------------------------------------
 // Returning the guess for each step or right answer in the end
 std::string SmartGuesser::guess()
 {
@@ -217,7 +213,6 @@ std::string SmartGuesser::guess()
     return string(_guess.begin(), _guess.end());
 }
 
-////----------------------------------------------------------------------
 // Preparing the guessed answer for a next step
 void SmartGuesser::learn(string bp)
 {
@@ -233,4 +228,4 @@ void SmartGuesser::learn(string bp)
     else
         second_process(bull);
 }
-} // namespace bullpgia
+}

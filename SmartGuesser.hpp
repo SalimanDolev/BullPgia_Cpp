@@ -1,16 +1,4 @@
 #pragma once
-
-//=================================================================
-// The class SmartGuesser is part of the game bullpgia.
-//
-// The class SmartGuesser provide the algorithm which
-// calculates a number with maximum steps:
-// 1) if length of number is n = 2^x    : n*log(n) + 10
-// 2) if length of number is n = random : n*log(n) + 15
-//
-// The algorithm based on binary search
-//
-
 #include <vector>
 #include "Guesser.hpp"
 
@@ -36,41 +24,29 @@ private:
   int _l;                             // left index (need for the second process)
   int _r;                             // right index (need for the second process)
 
-  ////----------------------------------------------------------------------
   // Creating a guess's number
   void create_num(char ch, size_t left, size_t right);
 
-  ////----------------------------------------------------------------------
   // Calculate the number of each digit
   void first_process(int bull);
 
-  ////----------------------------------------------------------------------
   // For the starting the second process
   void start_second();
 
-  ////----------------------------------------------------------------------
   // Calculate the right position of each digit
   void second_process(int bull);
 
-  //
-  //---------------------------INTERFACE------------------------------------
-  //
-
 public:
-  ////----------------------------------------------------------------------
   // Simple log2 function
   static int log2(int num);
 
-  ////----------------------------------------------------------------------
   // Preparing the SmartGuesser
   void startNewGame(int len) override;
 
-  ////----------------------------------------------------------------------
   // Returning the guess for each step or right answer in the end
   string guess() override;
 
-  ////----------------------------------------------------------------------
   // Preparing the guessed answer for a next step
   void learn(string bp) override;
 };
-} // namespace bullpgia
+}
